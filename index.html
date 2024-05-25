@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="overlay" id="overlay"></div>
+    <h2>Guessing Game</h2>
+
+    <!-- modal -->
+    <div id="modal">
+      <div id="modal-content">
+        <p>Click on the "Start Game" to start guessing</p>
+        <button id="start-button">Start Game</button>
+      </div>
+    </div>
+
+    <div>
+        <h4>Guess a number between 1-10</h4>
+        <div>
+            <input type="text" id="input">
+            <button id="enter-button">Enter</button>
+        </div>
+        <p id="attempts"></p>
+        <p id="result"></p>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
