@@ -370,84 +370,121 @@
 // }
 
 // guessing game
-const modal = document.getElementById("modal");
-const startButton = document.getElementById("start-button");
-const overlay = document.getElementById("overlay");
-addEventListener("DOMContentLoaded", (e) => {
-  modal.style.display = "flex";
-  overlay.style.display = "flex";
-});
 
-startButton.addEventListener("click", () => {
-  modal.style.display = "none";
-  overlay.style.display = "none";
-});
+// document.addEventListener("DOMContentLoaded", (e) => {
+//   const modal = document.getElementById("modal");
+//   const modalResult = document.getElementById("modal-result");
+//   const startButton = document.getElementById("start-button");
+//   const overlay = document.getElementById("overlay");
+//   const inputField = document.getElementById("input");
+//   const enterButton = document.getElementById("enter-button");
+//   let attempt = document.getElementById("attempts");
+//   const result = document.getElementById("result");
+//   const playAgain = document.getElementById("play-again");
 
-const input = document.getElementById("input").value;
-const enterButton = document.getElementById("enter-button");
-const attempt = document.getElementById("attempts");
-const result = document.getElementById("result");
+//   let attempts = 0;
+//   let secret;
 
-enterButton.addEventListener("click", () => {
-  function getRandomNumber(max, min) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
+//   let min = 1;
+//   let max = 10;
 
-  function GuessGame() {
-    let minNum = 1;
-    let maxNum = 10;
-    let secretNumber = getRandomNumber(maxNum, minNum);
-    let attempts = 0;
+//   modal.style.display = "flex";
+//   overlay.style.display = "flex";
 
-    while (true) {
-      if (input === "" || isNaN(input)) {
-        alert("Please enter a valid number");
-        continue;
-      }
-      attempt.textContent = attempts++;
+//   startButton.addEventListener("click", () => {
+//     modal.style.display = "none";
+//     overlay.style.display = "none";
+//     attempts = 0;
+//     result.textContent = "Your Result will display here";
+//     attempt.textContent = "Attempts:" + attempts;
 
-      if (input === secretNumber) {
-        result.textContent = `Congratulations, you got it after ${attempts} attempts. the number is ${secretNumber}`;
-        break;
-      } else {
-        result.textContent = "Try again";
-      }
-    }
-  }
-  GuessGame();
-});
+//     secret = getRandomNumber(max, min);
+//     console.log(secret);
+//   });
 
-function randomNumber(max, min) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+//   function getRandomNumber(min, max) {
+//     return Math.floor(Math.random() * (max - min + 1)) + min;
+//   }
 
-// function to guess number
+//   enterButton.addEventListener("click", () => {
+//     if (inputField.value === "") {
+//       alert("Please enter a value");
+//       return;
+//     }
+//     attempts++;
+//     attempt.textContent = `Attempts: ${attempts}`;
+//     console.log(attempt);
 
-function guessNumber() {
-  let minNum = 1;
-  let maxNum = 10;
-  const secretNumber = randomNumber(maxNum, minNum);
-  let attempts = 0;
+//     if (Number(inputField.value) === secret) {
+//       modalResult.style.display = "flex";
+//       result.textContent = `Congratulations, secret code is ${secret}, you did it after ${attempt.innerText}`;
+//       result.style.color = "#fff";
+//     } else {
+//       result.textContent = "Try again";
+//     }
+//   });
 
-  while (true) {
-    let playerNumber = prompt("Enter a Number");
+//   playAgain.addEventListener("click", () => {
+//     modalResult.style.display = "none";
+//     secret = getRandomNumber(10, 1);
+//     attempts.textContent = 0;
+//     attempts = 0;
+//     console.log(secret);
+//   });
+// });
 
-    // to make sure it is a number
-    if (playerNumber === "" || isNaN(playerNumber)) {
-      alert("Enter a valid number");
-      continue;
-    }
-    attempts++;
+// COUNTDOWN
 
-    if (Number(playerNumber) === secretNumber) {
-      console.log(
-        `Congratulations, you guessed it right. The secret number is ${secretNumber}`
-      );
-      break;
+// let x = setInterval(() => {
+//   let countDownDate = new Date("May 26, 2025 00:00:00").getTime();
+//   let currentDate = new Date().getTime();
+
+//   let distance = countDownDate - currentDate;
+//   let days = document.querySelector("#day");
+//   let hours = document.querySelector("#hours");
+//   let minutes = document.querySelector("#minutes");
+//   let seconds = document.querySelector("#seconds");
+
+//   let day = Math.floor(distance / (1000 * 60 * 60 * 24));
+//   let hour = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+//   let minute = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+//   let second = Math.floor((distance % (1000 * 60)) / 1000);
+
+//   days.innerText = day;
+//   hours.innerText = hour;
+//   minutes.innerText = minute;
+//   seconds.innerText = second;
+
+//   if (distance < 0) {
+//     clearInterval(x);
+//     alert("Milestone reached");
+//   }
+// }, 1000);
+
+// IPHONE
+
+document.addEventListener("DOMContentLoaded", () => {
+  const notifyBar = document.querySelector(".bar");
+  const airpods = document.querySelector(".airpods");
+  const textContent = document.querySelector(".text-content")
+  console.log(airpods);
+
+
+  notifyBar.addEventListener("click", (event) => {
+    if (notifyBar.classList.contains("expanded")) {
+      textContent.style.display = "none"
+      airpods.style.width = "16px";
+      airpods.style.height = "16px";
+      notifyBar.classList.remove("expanded");
+
     } else {
-      console.log("Try again");
-    }
-  }
-}
+      textContent.style.display = "flex"
+      airpods.style.width = "40px";
+      airpods.style.height = "25px";
+      notifyBar.classList.add("expanded");
 
-// guessNumber();
+    }
+
+    event.stopPropagation();
+  });
+});

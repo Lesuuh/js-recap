@@ -7,10 +7,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="overlay" id="overlay"></div>
-    <h2>Guessing Game</h2>
-
-    <!-- modal -->
+    <!-- <div class="overlay" id="overlay"></div>
     <div id="modal">
       <div id="modal-content">
         <p>Click on the "Start Game" to start guessing</p>
@@ -18,16 +15,65 @@
       </div>
     </div>
 
-    <div>
-        <h4>Guess a number between 1-10</h4>
-        <div>
-            <input type="text" id="input">
-            <button id="enter-button">Enter</button>
-        </div>
-        <p id="attempts"></p>
-        <p id="result"></p>
+    <div id="modal-result">
+      <div id="modal-content">
+        <p id="result">Your Results will be displayed here</p>
+        <button id="play-again">Play Again</button>
+      </div>
     </div>
 
+    <div class="game-body">
+      <h2>Guessing Game</h2>
+      <h4>Guess a number between 1-10</h4>
+      <div>
+        <input type="text" id="input" />
+        <button id="enter-button">Enter</button>
+      </div>
+      <p id="attempts">Attempts: 0</p>
+    </div> -->
+
+    <!-- <div class="">
+      <div class="count-down">
+        <div class="count">
+          <div class="days">
+            <span id="day">00</span>
+            <p>days</p>
+          </div>
+          <div class="hours">
+            <span id="hours">00</span>
+            <p>hours</p>
+          </div>
+          <div class="minutes">
+            <span id="minutes">00</span>
+            <p>minutes</p>
+          </div>
+          <div class="seconds">
+            <span id="seconds">00</span>
+            <p>seconds</p>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="container">
+      <div class="img cropped">
+        <img src="./images//iPhone14ProMax.png" alt="iphone" />
+      </div>
+      <div class="bar">
+        <div class="left">
+          <img src="images/airpods.png" class="airpods" alt="airpods" />
+          <div class="text-content">
+            <p>Connected</p>
+            <p>Neeha's Airpods</p>
+          </div>
+        </div>
+        <div>
+          <div class="progress-ring">
+            <div class="progress-circle"><p>80</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>
